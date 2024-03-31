@@ -23,16 +23,15 @@ Hello again and thank you for stopping to read this journey into virtualization/
 After the sign-up process, I can now build everything I want in my environment, yes?  NO I cannot, and the reason is simple: while building under the root account is the easy way to go, its also the riskiest way.  What happens if someone manages to get access to that root account, as in some of the news reports about S3 buckets being emptied or even viewed?  That cannot and must not happen, so therefor I must create my own Admin level account, along with a group that has the permissions assigned to it necessary for the administrator-level tasks.  So after I log in with my root user, I land here at the management console which I am certain we all have come to know intimately, but I need to get to where I am going to be creating these users.  So I navigate to the search button and enter in “IAM” in search, which yields the result shown here. 
 
 ![image](https://github.com/EricpFrancisGIT/CloudPortfolio/assets/158304673/d599381c-ba5e-4743-8b11-4d7795944029)
-Figure 1 IAM Search
+
 
 Now I have arrived where I need to be, and the first thing I am going to do is create my own Admin level account.  However, I am going to want to create a User group and assign it the Administrator Access permission level, so when I start creating users, I can add them to the group and those users will be granted Administrator access to the entire account. So under Access Management, I click the “User groups” link and then select “Create Group”. 
 
 ![image](https://github.com/EricpFrancisGIT/CloudPortfolio/assets/158304673/5e456c36-3599-41de-aab6-5eabd02e5e04)
-Figure 2 IAM Group Creation
 
 The Next screen I am presented with is where I can name this group, attach permission policies and even users if I had created any yet.  Again, keeping security in mind, I make the group name somewhat inconspicuous, I name it “Otsego_Behemoth”, I attach the administrator access policy and complete.  Now I go over to Users and select the “Create User” button like the one you see here: 
+
 ![image](https://github.com/EricpFrancisGIT/CloudPortfolio/assets/158304673/022c14fe-d0ee-4243-a204-f23c5513a4f2)
-Figure 3 Creating User
 
 	Now to create my user account, I am wanting to make it something unique and not to tip off anyone that this is an admin-level account, some naming it simply “Admin” or even “Otsego-admin” is not going to be utilized.  Instead, I am going to be using my own name, making sure to give it access to the AWS Console, otherwise I won’t be able to do much.   Seeing as how this is the first of many I will be doing, I am going to be creating an IAM user.  Should the director approve of this proof of concepts along with a migration to AWS, I could implement Identity Center at a later date.
 	Finally, I am going to be entering my own password, keeping it safe in something like KeePass on my own system, but I am not going to change it just yet and I click next to advance to the next step.  Here is where I am going to add it to the Behemoth group and where I can download a CSV file.  Within this CSV file are my credentials and a console URL for me to use which will make it simpler and easier to sign-in.  With these credentials, I now can sign in with mine instead of using the root.  Now of course I could streamline this and automate the account creation process using something like terraform, however this is merely a proof of concept that I am using.  But do not worry gentle reader, I will be getting there where I will be using automation and terraform to help streamline everything as much as I am able to.
